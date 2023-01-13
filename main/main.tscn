@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://download.png" type="Texture" id=1]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
 [ext_resource path="res://Jim (1).png" type="Texture" id=3]
+[ext_resource path="res://main.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -166,7 +167,20 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 10, 19.5 )
 
+[sub_resource type="RectangleShape2D" id=51]
+extents = Vector2( 33.5, 35 )
+
+[sub_resource type="RectangleShape2D" id=52]
+extents = Vector2( 144, 84 )
+
+[sub_resource type="RectangleShape2D" id=53]
+extents = Vector2( 344, 202 )
+
+[sub_resource type="RectangleShape2D" id=54]
+extents = Vector2( 36, 44 )
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="world" type="KinematicBody2D" parent="."]
 
@@ -194,3 +208,37 @@ shape = SubResource( 23 )
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
 current = true
 zoom = Vector2( 0.3, 0.3 )
+
+[node name="hidden_crouched" type="Area2D" parent="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/hidden_crouched"]
+position = Vector2( 0.5, -3 )
+shape = SubResource( 51 )
+
+[node name="sight_area" type="Area2D" parent="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/sight_area"]
+position = Vector2( -1, 1 )
+shape = SubResource( 52 )
+
+[node name="Activation_Area" type="Area2D" parent="KinematicBody2D"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Activation_Area"]
+shape = SubResource( 53 )
+
+[node name="small_melee" type="Area2D" parent="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/small_melee"]
+shape = SubResource( 54 )
+
+[connection signal="area_entered" from="KinematicBody2D/Activation_Area" to="KinematicBody2D" method="_on_Activation_Area_area_entered"]
+[connection signal="area_entered" from="KinematicBody2D/small_melee" to="KinematicBody2D" method="_on_small_melee_area_entered"]
+[connection signal="area_exited" from="KinematicBody2D/small_melee" to="KinematicBody2D" method="_on_small_melee_area_exited"]

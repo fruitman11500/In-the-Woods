@@ -1,5 +1,10 @@
 extends KinematicBody2D
 
+signal initiate
+signal damage1
+signal damage2 
+signal damage3
+
 var velocity = Vector2()
 onready var animation = $AnimatedSprite
 var attack_cooldown = false
@@ -17,11 +22,19 @@ var pistol = false
 var fist = true
 var fist_attack = false
 var spear = false
+var health = 10
 var attack_timer = Timer.new()
+var hit = false
+var bear_dead = false
+var player_position = global_position
+
 
 func _ready():
 	attack_timer.wait_time = 0.5
-	animation.animation = 'stand_right'
+	animation.animation = 'stand_left'
+	$hidden_crouched/CollisionShape2D.disabled = true
+	$sight_area/CollisionShape2D.disabled = false
+	health = 10
 
 func get_input():
 	if can_move == true:
@@ -89,6 +102,7 @@ func get_input():
 				add_child(attack_timer)
 				attack_timer.start()
 				attack_cooldown = true
+				emit_signal("damage1")
 				if face_left == true:
 					animation.animation = 'punch_left'
 				elif face_right == true:
@@ -101,9 +115,36 @@ func get_input():
 				attack_cooldown = false
 				
 		
-
+func game_processes():
+	if hidden == true:
+		$hidden_crouched/CollisionShape2D.disabled = false
+		$sight_area/CollisionShape2D.disabled = true
+	elif hidden == false:
+		$hidden_crouched/CollisionShape2D.disabled = true
+		$sight_area/CollisionShape2D.disabled = false
 func _physics_process(delta):
+	game_processes()
 	get_input()
 	move_and_slide(velocity * 100)
-	print ('face_right', face_right)
-	print ('face_left',face_left)
+	var bear = get_tree().get_root().find_node("bear",true,false)
+	if bear_dead == false:
+		bear.connect("bear_damage",self,"bear_damage")
+		bear.connect('dead', self, 'bear_dead')
+	if health == 0:
+		pass
+
+func bear_damage():
+	if hit == true:
+		health -= 2
+
+func bear_dead():
+	bear_dead = true
+
+func _on_Activation_Area_area_entered(area):
+	emit_signal('initiate')
+
+
+func _on_small_melee_area_entered(area):
+	hit = true
+func _on_small_melee_area_exited(area):
+	hit = false
