@@ -4,10 +4,15 @@ onready var animation = $AnimatedSprite
 var apples = false
 var timer = Timer.new()
 var pickup = false
+var x = RandomNumberGenerator.new()
+var y = RandomNumberGenerator.new()
 func _ready(): 
 	apples = true
 	timer.wait_time = 1200
 	apple_timer()
+	x.randomize()
+	y.randomize()
+	position = Vector2(x.randf_range(-800,5500),y.randf_range(10,2375))
 
 func apple_timer():
 	add_child(timer)

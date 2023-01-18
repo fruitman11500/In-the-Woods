@@ -695,6 +695,7 @@ shape = SubResource( 23 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
+zoom = Vector2( 5, 5 )
 
 [node name="hidden_crouched" type="Area2D" parent="Player"]
 collision_layer = 2
