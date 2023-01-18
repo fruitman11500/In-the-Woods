@@ -35,7 +35,7 @@ func _ready():
 	$hidden_crouched/CollisionShape2D.disabled = true
 	$sight_area/CollisionShape2D.disabled = false
 	health = 10
-
+	global_position = Vector2(-128,32)
 func get_input():
 	if can_move == true:
 		if Input.is_action_pressed("a"):

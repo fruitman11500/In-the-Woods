@@ -28,25 +28,27 @@ func bear_movement():
 		face_right = true
 		face_left = false
 		yield(timer,'timeout')
-		velocity.x = -25
-		add_child(timer)
-		timer.start()
-		animation.animation = 'walk_left'
-		face_right = false
-		face_left = true
-		yield(timer,"timeout")
-		bear_movement()
+		if moving == true:
+			velocity.x = -25
+			add_child(timer)
+			timer.start()
+			animation.animation = 'walk_left'
+			face_right = false
+			face_left = true
+			yield(timer,"timeout")
+			bear_movement()
 	
 
 func _physics_process(delta):
 	move_and_slide(velocity)
-	var player = get_tree().get_root().find_node("KinematicBody2D",true,false)
+	var player = get_tree().get_root().find_node("Player",true,false)
 	player.connect("initiate",self,"handleplayerspotted")
 	player.connect("damage1",self,"damage1")
 	if health == 0:
 		emit_signal('dead')
 		queue_free()
 func handleplayerspotted():
+	print('initiate')
 	moving = true
 	bear_movement()
 	
