@@ -6,6 +6,8 @@ signal damage2
 signal damage3
 
 var velocity = Vector2()
+var enter = false
+var exit = false
 onready var animation = $AnimatedSprite
 var attack_cooldown = false
 var face_right = true
@@ -132,6 +134,14 @@ func _physics_process(delta):
 		bear.connect('dead', self, 'bear_dead')
 	if health == 0:
 		pass
+	if enter == true:
+		if Input.is_action_just_pressed('e'):
+			position = Vector2(-1500,-1000)
+			enter = false
+	if exit == true:
+		if Input.is_action_just_pressed('e'):
+			position = Vector2(400,900)
+			exit = false
 
 func bear_damage():
 	if hit == true:
@@ -148,3 +158,18 @@ func _on_small_melee_area_entered(area):
 	hit = true
 func _on_small_melee_area_exited(area):
 	hit = false
+
+
+func _on_door_enter_area_entered(area):
+		enter = true
+
+func _on_door_enter_area_exited(area):
+	enter = false
+
+
+func _on_Area2D_area_entered(area):
+	exit = true
+
+
+func _on_Area2D_area_exited(area):
+	exit = false
