@@ -4,6 +4,7 @@ signal initiate
 signal damage1
 signal damage2 
 signal damage3
+signal axe_picked_up
 
 var velocity = Vector2()
 var enter = false
@@ -15,6 +16,9 @@ var face_left = false
 var can_move = true
 var hidden = false
 var axe = false
+var axe_pickup = false
+var axe_safety = false
+var axe_available = false
 var bow = false
 var rock = false
 var knife = false
@@ -115,8 +119,29 @@ func get_input():
 				elif face_right == true:
 					animation.animation = 'stand_right'
 				attack_cooldown = false
+			if axe == true:
+				add_child(attack_timer)
+				attack_timer.start()
+				attack_cooldown = true
+				emit_signal("damage2")
+				if face_left == true:
+					animation.animation = 'axe_left'
+				elif face_right == true:
+					animation.animation = "axe_right"
+				yield (attack_timer,"timeout")
+				if face_left == true:
+					animation.animation = 'stand_left'
+				elif face_right == true:
+					animation.animation = 'stand_right'
+				attack_cooldown = false
 				
-		
+	if Input.is_action_just_pressed('0'):
+		fist = true
+		axe = false
+	elif Input.is_action_just_pressed('1'):
+		if axe_available == true:
+			axe = true
+			fist = false
 func game_processes():
 	if hidden == true:
 		$hidden_crouched/CollisionShape2D.disabled = false
@@ -142,7 +167,10 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed('e'):
 			position = Vector2(400,900)
 			exit = false
-
+	if axe_pickup == true and axe_safety == false:
+		if Input.is_action_just_pressed('e'):
+			axe_available = true
+			emit_signal("axe_picked_up")
 func bear_damage():
 	if hit == true:
 		health -= 2
@@ -173,3 +201,11 @@ func _on_Area2D_area_entered(area):
 
 func _on_Area2D_area_exited(area):
 	exit = false
+
+
+func _on_axe_stump_area_entered(area):
+	axe_pickup = true
+
+
+func _on_axe_stump_area_exited(area):
+	axe_pickup = false

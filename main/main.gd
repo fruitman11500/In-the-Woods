@@ -15,4 +15,5 @@ func _physics_process(delta):
 	var tree = t.instance()
 	if c <= 100:
 		add_child(tree)
+		
 		c += 1

@@ -44,7 +44,8 @@ func _physics_process(delta):
 	var player = get_tree().get_root().find_node("Player",true,false)
 	player.connect("initiate",self,"handleplayerspotted")
 	player.connect("damage1",self,"damage1")
-	if health == 0:
+	player.connect('damage2',self,'damage2')
+	if health <= 0:
 		emit_signal('dead')
 		queue_free()
 func handleplayerspotted():
@@ -56,8 +57,10 @@ func damage1():
 	if hit == true:
 		health -= 1
 		print (health) 
-	
-
+func damage2():
+	if hit == true:
+		health -= 2
+		print (health)
 
 func attack_sequence():
 	ti.wait_time = 1
