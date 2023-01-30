@@ -178,9 +178,6 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=72]
 extents = Vector2( 20.75, 18.875 )
 
-[sub_resource type="RectangleShape2D" id=77]
-extents = Vector2( 26.5, 1390.25 )
-
 [sub_resource type="AtlasTexture" id=80]
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 64, 64 )
@@ -276,6 +273,8 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=98]
 
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 3 )
@@ -774,10 +773,6 @@ scale = Vector2( 1.63281, 1.58594 )
 frames = SubResource( 76 )
 animation = "rock2"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="world"]
-position = Vector2( -938, 1286 )
-shape = SubResource( 77 )
-
 [node name="cabin" type="KinematicBody2D" parent="world"]
 script = ExtResource( 7 )
 
@@ -870,6 +865,11 @@ scale = Vector2( 0.0780488, 3.71199 )
 frames = SubResource( 88 )
 animation = "side"
 
+[node name="KinematicBody2D2" type="KinematicBody2D" parent="world"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/KinematicBody2D2"]
+shape = SubResource( 98 )
+
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 158, -721 )
 script = ExtResource( 2 )
@@ -926,8 +926,8 @@ position = Vector2( 0, -0.5 )
 shape = SubResource( 23 )
 
 [connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="world/cabin/AnimatedSprite2" method="_on_Area2D_area_entered"]
-[connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_entered"]
 [connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_entered"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="world/cabin/AnimatedSprite2" method="_on_Area2D_area_exited"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_exited"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_exited"]
