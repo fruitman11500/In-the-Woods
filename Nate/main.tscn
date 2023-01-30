@@ -1,50 +1,52 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=102 format=2]
 
-[ext_resource path="res://backgrounds 1.png" type="Texture" id=1]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
-[ext_resource path="res://Jim (1).png" type="Texture" id=3]
+[ext_resource path="res://old_man_miniboss.gd" type="Script" id=1]
+[ext_resource path="res://cabin.gd" type="Script" id=2]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=3]
 [ext_resource path="res://main.gd" type="Script" id=4]
-[ext_resource path="res://paths.png" type="Texture" id=5]
-[ext_resource path="res://cabin 1.png" type="Texture" id=6]
-[ext_resource path="res://cabin.gd" type="Script" id=7]
+[ext_resource path="res://pictures/Jim (1).png" type="Texture" id=5]
+[ext_resource path="res://pictures/cabin 1.png" type="Texture" id=6]
+[ext_resource path="res://pictures/backgrounds 1.png" type="Texture" id=7]
+[ext_resource path="res://pictures/paths.png" type="Texture" id=8]
+[ext_resource path="res://pictures/old MAN.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2416.5, 13.5 )
 
 [sub_resource type="AtlasTexture" id=55]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 0, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=56]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=57]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 192, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=58]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 256, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=59]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 128, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=61]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 192, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=62]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 0, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=63]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 64, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=64]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 256, 64, 64, 64 )
 
 [sub_resource type="SpriteFrames" id=60]
@@ -96,23 +98,23 @@ animations = [ {
 } ]
 
 [sub_resource type="AtlasTexture" id=71]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 128, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=66]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 192, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=67]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 64, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=68]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 128, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=69]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 0, 64, 64, 64 )
 
 [sub_resource type="SpriteFrames" id=70]
@@ -146,15 +148,15 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=65]
 
 [sub_resource type="AtlasTexture" id=73]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 128, 256, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=74]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 192, 256, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=75]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 256, 256, 64, 64 )
 
 [sub_resource type="SpriteFrames" id=76]
@@ -257,11 +259,11 @@ extents = Vector2( 249.25, 16 )
 extents = Vector2( 91.5, 39.5 )
 
 [sub_resource type="AtlasTexture" id=86]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 8 )
 region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=87]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 8 )
 region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=88]
@@ -278,107 +280,107 @@ animations = [ {
 } ]
 
 [sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 128, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 192, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 256, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 320, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 64, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 128, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 192, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 256, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 320, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 320, 384, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 256, 384, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=47]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 64, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=48]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 192, 384, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=49]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 192, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=50]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 384, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=37]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 320, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=39]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 256, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=40]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 320, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=42]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 64, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=43]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=44]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=45]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 128, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=46]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 192, 0, 64, 64 )
 
 [sub_resource type="SpriteFrames" id=22]
@@ -451,6 +453,101 @@ extents = Vector2( 34, 27.5 )
 
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 10, 19.5 )
+
+[sub_resource type="RectangleShape2D" id=99]
+extents = Vector2( 10.5, 19.5 )
+
+[sub_resource type="AtlasTexture" id=100]
+atlas = ExtResource( 9 )
+region = Rect2( 64, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=101]
+atlas = ExtResource( 9 )
+region = Rect2( 128, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=102]
+atlas = ExtResource( 9 )
+region = Rect2( 128, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=103]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=104]
+atlas = ExtResource( 9 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=105]
+atlas = ExtResource( 9 )
+region = Rect2( 128, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=106]
+atlas = ExtResource( 9 )
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=107]
+atlas = ExtResource( 9 )
+region = Rect2( 128, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=108]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=109]
+atlas = ExtResource( 9 )
+region = Rect2( 64, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=110]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=111]
+atlas = ExtResource( 9 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=112]
+atlas = ExtResource( 9 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=113]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=98]
+animations = [ {
+"frames": [ SubResource( 100 ) ],
+"loop": true,
+"name": "bow_left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 101 ) ],
+"loop": true,
+"name": "bow_right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 102 ), SubResource( 103 ) ],
+"loop": true,
+"name": "punch_left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 104 ), SubResource( 105 ) ],
+"loop": true,
+"name": "punch_right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ) ],
+"loop": true,
+"name": "walk_left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ) ],
+"loop": true,
+"name": "walk_right",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=114]
+extents = Vector2( 66, 58.5 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 4 )
@@ -794,7 +891,7 @@ __meta__ = {
 }
 
 [node name="cabin" type="KinematicBody2D" parent="world"]
-script = ExtResource( 7 )
+script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="world/cabin"]
 position = Vector2( 605, 857 )
@@ -887,7 +984,7 @@ animation = "side"
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 158, -721 )
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 22 )
@@ -940,12 +1037,43 @@ shape = SubResource( 78 )
 position = Vector2( 0, -0.5 )
 shape = SubResource( 23 )
 
+[node name="old_man_miniboss" type="KinematicBody2D" parent="."]
+position = Vector2( 383, 867 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="old_man_miniboss"]
+position = Vector2( 0.5, -9.5 )
+shape = SubResource( 99 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="old_man_miniboss"]
+position = Vector2( 1.90735e-06, -10 )
+scale = Vector2( 1.28125, 1.10938 )
+frames = SubResource( 98 )
+animation = "walk_left"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="activation_area_old_man" type="Area2D" parent="old_man_miniboss"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="old_man_miniboss/activation_area_old_man"]
+position = Vector2( 1, -8.5 )
+shape = SubResource( 114 )
+
 [connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="world/cabin/AnimatedSprite2" method="_on_Area2D_area_entered"]
-[connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_entered"]
 [connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_entered"]
+[connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="world/cabin/AnimatedSprite2" method="_on_Area2D_area_exited"]
-[connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_exited"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_exited"]
+[connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="world/cabin/door_enter" to="Player" method="_on_door_enter_area_entered"]
 [connection signal="area_exited" from="world/cabin/door_enter" to="Player" method="_on_door_enter_area_exited"]
 [connection signal="area_entered" from="world/cabin/Area2D" to="Player" method="_on_Area2D_area_entered"]
@@ -954,3 +1082,4 @@ shape = SubResource( 23 )
 [connection signal="area_entered" from="Player/Activation_Area" to="Player" method="_on_Activation_Area_area_entered"]
 [connection signal="area_entered" from="Player/small_melee" to="Player" method="_on_small_melee_area_entered"]
 [connection signal="area_exited" from="Player/small_melee" to="Player" method="_on_small_melee_area_exited"]
+[connection signal="area_entered" from="old_man_miniboss/activation_area_old_man" to="old_man_miniboss" method="_on_activation_area_old_man_area_entered"]

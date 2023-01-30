@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cabin 1.png-4e549a6f95c94cfa38a0e07a665cd770.stex"
+path="res://.import/Jim (1).png-3ebf6f92eb8a5dbf4c0b214e43888260.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cabin 1.png"
-dest_files=[ "res://.import/cabin 1.png-4e549a6f95c94cfa38a0e07a665cd770.stex" ]
+source_file="res://pictures/Jim (1).png"
+dest_files=[ "res://.import/Jim (1).png-3ebf6f92eb8a5dbf4c0b214e43888260.stex" ]
 
 [params]
 
