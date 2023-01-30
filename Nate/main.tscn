@@ -467,6 +467,9 @@ scale = Vector2( 3, 3 )
 z_index = -1
 frames = SubResource( 60 )
 animation = "grass day"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="cave" type="AnimatedSprite" parent="world/sky_block"]
 position = Vector2( 320, 0 )
@@ -625,6 +628,9 @@ scale = Vector2( 5, 6 )
 z_index = -1
 frames = SubResource( 60 )
 animation = "grass"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="grass_block3" type="AnimatedSprite" parent="world/grass_block/grass_block"]
 position = Vector2( 60.8, 14.4 )
@@ -724,6 +730,9 @@ scale = Vector2( 3, 3 )
 z_index = -1
 frames = SubResource( 60 )
 animation = "tree day"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="tree_block2" type="AnimatedSprite" parent="world/tree_block"]
 position = Vector2( 113.6, 12.8 )
@@ -763,6 +772,9 @@ shape = SubResource( 72 )
 position = Vector2( 233, 36 )
 scale = Vector2( 2, 2 )
 z_index = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="world/KinematicBody2D/rock2"]
 position = Vector2( 585, -5 )
@@ -777,6 +789,9 @@ animation = "rock2"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="world"]
 position = Vector2( -938, 1286 )
 shape = SubResource( 77 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="cabin" type="KinematicBody2D" parent="world"]
 script = ExtResource( 7 )
@@ -926,11 +941,11 @@ position = Vector2( 0, -0.5 )
 shape = SubResource( 23 )
 
 [connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="world/cabin/AnimatedSprite2" method="_on_Area2D_area_entered"]
-[connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_entered"]
 [connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_entered"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="world/cabin/AnimatedSprite2" method="_on_Area2D_area_exited"]
-[connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_exited"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_exited"]
+[connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_exited"]
 [connection signal="area_entered" from="world/cabin/door_enter" to="Player" method="_on_door_enter_area_entered"]
 [connection signal="area_exited" from="world/cabin/door_enter" to="Player" method="_on_door_enter_area_exited"]
 [connection signal="area_entered" from="world/cabin/Area2D" to="Player" method="_on_Area2D_area_entered"]
