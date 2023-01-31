@@ -1,6 +1,5 @@
 extends KinematicBody2D
-
+signal old_man_boss_start
 var attack_sequence = false
 
-func _on_activation_area_old_man_area_entered(area):
-	attack_sequence = true
+

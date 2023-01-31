@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=2]
+[gd_scene load_steps=120 format=2]
 
 [ext_resource path="res://old_man_miniboss.gd" type="Script" id=1]
 [ext_resource path="res://cabin.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://pictures/backgrounds 1.png" type="Texture" id=7]
 [ext_resource path="res://pictures/paths.png" type="Texture" id=8]
 [ext_resource path="res://pictures/old MAN.png" type="Texture" id=9]
+[ext_resource path="res://wood fence (1).png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2416.5, 13.5 )
@@ -258,6 +259,94 @@ extents = Vector2( 249.25, 16 )
 [sub_resource type="RectangleShape2D" id=96]
 extents = Vector2( 91.5, 39.5 )
 
+[sub_resource type="RectangleShape2D" id=115]
+extents = Vector2( 16, 202.5 )
+
+[sub_resource type="RectangleShape2D" id=116]
+extents = Vector2( 389, 33.5 )
+
+[sub_resource type="AtlasTexture" id=117]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=118]
+atlas = ExtResource( 10 )
+region = Rect2( 32, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=119]
+atlas = ExtResource( 10 )
+region = Rect2( 32, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=120]
+atlas = ExtResource( 10 )
+region = Rect2( 32, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=121]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=122]
+atlas = ExtResource( 10 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=123]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=124]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=125]
+animations = [ {
+"frames": [ SubResource( 117 ) ],
+"loop": true,
+"name": "wood_fence",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 118 ) ],
+"loop": true,
+"name": "wood_fence_empty",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ) ],
+"loop": true,
+"name": "wood_fence_raise",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 124 ) ],
+"loop": true,
+"name": "wood_fence_side",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=126]
+atlas = ExtResource( 10 )
+region = Rect2( 32, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=127]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=128]
+animations = [ {
+"frames": [ SubResource( 126 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 127 ) ],
+"loop": true,
+"name": "side_fence",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=129]
+extents = Vector2( 147.5, 71 )
+
+[sub_resource type="RectangleShape2D" id=130]
+extents = Vector2( 339, 130.5 )
+
 [sub_resource type="AtlasTexture" id=86]
 atlas = ExtResource( 8 )
 region = Rect2( 32, 0, 32, 32 )
@@ -454,6 +543,8 @@ extents = Vector2( 34, 27.5 )
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 10, 19.5 )
 
+[sub_resource type="RectangleShape2D" id=131]
+
 [sub_resource type="RectangleShape2D" id=99]
 extents = Vector2( 10.5, 19.5 )
 
@@ -626,6 +717,9 @@ scale = Vector2( 3, 3 )
 z_index = -1
 frames = SubResource( 60 )
 animation = "grass"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="grass_block3" type="AnimatedSprite" parent="world/grass_block"]
 position = Vector2( 60.8, 14.4 )
@@ -964,6 +1058,140 @@ shape = SubResource( 95 )
 position = Vector2( -1401, -1094.5 )
 shape = SubResource( 96 )
 
+[node name="KinematicBody2D" type="KinematicBody2D" parent="world/cabin"]
+position = Vector2( 391, 862 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="world/cabin/KinematicBody2D"]
+position = Vector2( 627, 16 )
+shape = SubResource( 115 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="world/cabin/KinematicBody2D"]
+position = Vector2( 254, 187 )
+shape = SubResource( 116 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/cabin/KinematicBody2D"]
+position = Vector2( 255, -153.5 )
+shape = SubResource( 116 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="world/cabin/KinematicBody2D"]
+position = Vector2( -118, 13.5 )
+shape = SubResource( 115 )
+
+[node name="wood_fence_top_bottom" type="AnimatedSprite" parent="world/cabin/KinematicBody2D"]
+position = Vector2( -56, -160 )
+scale = Vector2( 5, 2.5 )
+frames = SubResource( 125 )
+animation = "wood_fence"
+playing = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/wood_fence_top_bottom"]
+position = Vector2( 31.2, 2.28882e-05 )
+frames = SubResource( 125 )
+animation = "wood_fence"
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/wood_fence_top_bottom"]
+position = Vector2( 62, -7.62939e-06 )
+frames = SubResource( 125 )
+animation = "wood_fence"
+playing = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/wood_fence_top_bottom"]
+position = Vector2( 92.8, 5.34058e-05 )
+frames = SubResource( 125 )
+animation = "wood_fence"
+playing = true
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/wood_fence_top_bottom"]
+position = Vector2( 123.6, 2.28882e-05 )
+frames = SubResource( 125 )
+animation = "wood_fence"
+playing = true
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/wood_fence_top_bottom"]
+position = Vector2( -3.8147e-06, 135.6 )
+frames = SubResource( 125 )
+animation = "wood_fence"
+playing = true
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/wood_fence_top_bottom"]
+position = Vector2( 30.8, 135.6 )
+frames = SubResource( 125 )
+animation = "wood_fence"
+playing = true
+
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/wood_fence_top_bottom"]
+position = Vector2( 61.6, 135.6 )
+frames = SubResource( 125 )
+animation = "wood_fence"
+playing = true
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/wood_fence_top_bottom"]
+position = Vector2( 92.4, 135.6 )
+frames = SubResource( 125 )
+animation = "wood_fence"
+playing = true
+
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/wood_fence_top_bottom"]
+position = Vector2( 123.2, 135.6 )
+frames = SubResource( 125 )
+animation = "wood_fence"
+playing = true
+
+[node name="side_fence" type="AnimatedSprite" parent="world/cabin/KinematicBody2D"]
+position = Vector2( -126, 121 )
+scale = Vector2( 5, 2.5 )
+z_index = 1
+frames = SubResource( 128 )
+animation = "side_fence"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/side_fence"]
+position = Vector2( 0, -32 )
+frames = SubResource( 128 )
+animation = "side_fence"
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/side_fence"]
+position = Vector2( 0, -64 )
+frames = SubResource( 128 )
+animation = "side_fence"
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/side_fence"]
+position = Vector2( 0, -95.6 )
+frames = SubResource( 128 )
+animation = "side_fence"
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/side_fence"]
+position = Vector2( 150, -0.800018 )
+frames = SubResource( 128 )
+animation = "side_fence"
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/side_fence"]
+position = Vector2( 150, -32.8 )
+frames = SubResource( 128 )
+animation = "side_fence"
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/side_fence"]
+position = Vector2( 150, -64.8 )
+frames = SubResource( 128 )
+animation = "side_fence"
+
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="world/cabin/KinematicBody2D/side_fence"]
+position = Vector2( 150, -96.8 )
+frames = SubResource( 128 )
+animation = "side_fence"
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="world/cabin"]
+position = Vector2( 597.5, 855 )
+shape = SubResource( 129 )
+
+[node name="Area2D2" type="Area2D" parent="world/cabin"]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/cabin/Area2D2"]
+position = Vector2( 639, 881.5 )
+shape = SubResource( 130 )
+
 [node name="paths" type="AnimatedSprite" parent="world"]
 position = Vector2( -335, 100 )
 scale = Vector2( 102.5, 1 )
@@ -993,7 +1221,7 @@ playing = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
-zoom = Vector2( 0.3, 0.3 )
+zoom = Vector2( 5, 5 )
 
 [node name="hidden_crouched" type="Area2D" parent="Player"]
 collision_layer = 2
@@ -1037,8 +1265,15 @@ shape = SubResource( 78 )
 position = Vector2( 0, -0.5 )
 shape = SubResource( 23 )
 
+[node name="small_trap" type="Area2D" parent="Player"]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/small_trap"]
+shape = SubResource( 131 )
+
 [node name="old_man_miniboss" type="KinematicBody2D" parent="."]
-position = Vector2( 383, 867 )
+position = Vector2( 826, 873 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -1069,17 +1304,19 @@ position = Vector2( 1, -8.5 )
 shape = SubResource( 114 )
 
 [connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="world/cabin/AnimatedSprite2" method="_on_Area2D_area_entered"]
-[connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_entered"]
 [connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_entered"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="world/cabin/AnimatedSprite2" method="_on_Area2D_area_exited"]
-[connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_exited"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_exited"]
+[connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_exited"]
 [connection signal="area_entered" from="world/cabin/door_enter" to="Player" method="_on_door_enter_area_entered"]
 [connection signal="area_exited" from="world/cabin/door_enter" to="Player" method="_on_door_enter_area_exited"]
 [connection signal="area_entered" from="world/cabin/Area2D" to="Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="world/cabin/Area2D" to="Player" method="_on_Area2D_area_exited"]
+[connection signal="area_entered" from="world/cabin/Area2D2" to="world/cabin" method="_on_Area2D2_area_entered"]
 [connection signal="axe_picked_up" from="Player" to="world/cabin" method="_on_Player_axe_picked_up"]
 [connection signal="area_entered" from="Player/Activation_Area" to="Player" method="_on_Activation_Area_area_entered"]
 [connection signal="area_entered" from="Player/small_melee" to="Player" method="_on_small_melee_area_entered"]
 [connection signal="area_exited" from="Player/small_melee" to="Player" method="_on_small_melee_area_exited"]
+[connection signal="old_man_boss_start" from="old_man_miniboss" to="world/cabin" method="_on_old_man_miniboss_old_man_boss_start"]
 [connection signal="area_entered" from="old_man_miniboss/activation_area_old_man" to="old_man_miniboss" method="_on_activation_area_old_man_area_entered"]
