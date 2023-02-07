@@ -1221,7 +1221,7 @@ playing = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
-zoom = Vector2( 5, 5 )
+zoom = Vector2( 0.3, 0.3 )
 
 [node name="hidden_crouched" type="Area2D" parent="Player"]
 collision_layer = 2
