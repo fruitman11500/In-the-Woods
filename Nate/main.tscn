@@ -1231,7 +1231,6 @@ playing = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
-zoom = Vector2( 0.3, 0.3 )
 
 [node name="hidden_crouched" type="Area2D" parent="Player"]
 collision_layer = 2
@@ -1310,6 +1309,8 @@ position = Vector2( 1.90735e-06, -10 )
 scale = Vector2( 1.28125, 1.10938 )
 frames = SubResource( 98 )
 animation = "walk_left"
+frame = 3
+playing = true
 __meta__ = {
 "_edit_group_": true
 }

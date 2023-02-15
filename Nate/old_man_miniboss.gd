@@ -7,6 +7,7 @@ var velocity = Vector2()
 var timer = Timer.new()
 var time = Timer.new()
 var health = 100
+var activated = false
 
 func _ready():
 	global_position = Vector2(950,1000)
@@ -18,26 +19,32 @@ func attack_sequence():
 	velocity.y = -50
 	add_child(timer)
 	timer.start()
+	$AnimatedSprite.animation = 'walk_left'
 	yield (timer, 'timeout')
 	velocity.y = 0 
 	velocity.x = -50
 	add_child(time)
 	time.start()
+	$AnimatedSprite.animation = 'walk_left'
 	yield (time, 'timeout')
 	add_child(timer)
 	velocity.x = 0
 	velocity.y = 50
 	timer.start()
+	$AnimatedSprite.animation = 'walk_right'
 	yield (timer,'timeout')
 	velocity.y = 0
 	velocity.x = 50
 	add_child(time)
 	time.start()
+	$AnimatedSprite.animation = 'walk_right'
 	yield(time,'timeout')
 	attack_sequence()
 func _on_activation_area_old_man_area_entered(area):
-	print ('penis')
-	attack_sequence()
+	if activated == false:
+		print ('penis')
+		attack_sequence()
+		activated = true
 
 func _physics_process(delta):
 	move_and_slide(velocity)
