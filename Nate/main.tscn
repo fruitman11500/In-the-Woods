@@ -867,7 +867,7 @@ frames = SubResource( 60 )
 animation = "grass"
 
 [node name="grass_block9" type="AnimatedSprite" parent="world/grass_block/grass_block"]
-position = Vector2( 60.8, 14.4 )
+position = Vector2( 60.5333, 14.3889 )
 z_index = -1
 frames = SubResource( 60 )
 animation = "grass"
@@ -1307,8 +1307,8 @@ shape = SubResource( 114 )
 [connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_entered"]
 [connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_entered"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="world/cabin/AnimatedSprite2" method="_on_Area2D_area_exited"]
-[connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_exited"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_exited"]
+[connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_exited"]
 [connection signal="area_entered" from="world/cabin/door_enter" to="Player" method="_on_door_enter_area_entered"]
 [connection signal="area_exited" from="world/cabin/door_enter" to="Player" method="_on_door_enter_area_exited"]
 [connection signal="area_entered" from="world/cabin/Area2D" to="Player" method="_on_Area2D_area_entered"]
