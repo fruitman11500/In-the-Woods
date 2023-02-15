@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=2]
+[gd_scene load_steps=126 format=2]
 
 [ext_resource path="res://old_man_miniboss.gd" type="Script" id=1]
 [ext_resource path="res://cabin.gd" type="Script" id=2]
@@ -10,6 +10,10 @@
 [ext_resource path="res://pictures/paths.png" type="Texture" id=8]
 [ext_resource path="res://pictures/old MAN.png" type="Texture" id=9]
 [ext_resource path="res://wood fence (1).png" type="Texture" id=10]
+[ext_resource path="res://healthbar_oldman.gd" type="Script" id=11]
+[ext_resource path="res://health bar (1).png" type="Texture" id=12]
+[ext_resource path="res://health bar (2).png" type="Texture" id=13]
+[ext_resource path="res://health bar (3).png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2416.5, 13.5 )
@@ -345,7 +349,7 @@ animations = [ {
 extents = Vector2( 147.5, 71 )
 
 [sub_resource type="RectangleShape2D" id=130]
-extents = Vector2( 339, 130.5 )
+extents = Vector2( 359, 137.5 )
 
 [sub_resource type="AtlasTexture" id=86]
 atlas = ExtResource( 8 )
@@ -545,6 +549,9 @@ extents = Vector2( 10, 19.5 )
 
 [sub_resource type="RectangleShape2D" id=131]
 
+[sub_resource type="RectangleShape2D" id=132]
+extents = Vector2( 20, 24.5 )
+
 [sub_resource type="RectangleShape2D" id=99]
 extents = Vector2( 10.5, 19.5 )
 
@@ -639,6 +646,9 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=114]
 extents = Vector2( 66, 58.5 )
+
+[sub_resource type="RectangleShape2D" id=133]
+extents = Vector2( 23, 30.5 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 4 )
@@ -1189,7 +1199,7 @@ collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="world/cabin/Area2D2"]
-position = Vector2( 639, 881.5 )
+position = Vector2( 644, 881.5 )
 shape = SubResource( 130 )
 
 [node name="paths" type="AnimatedSprite" parent="world"]
@@ -1272,6 +1282,14 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/small_trap"]
 shape = SubResource( 131 )
 
+[node name="hitbox" type="Area2D" parent="Player"]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/hitbox"]
+position = Vector2( 1, 0.5 )
+shape = SubResource( 132 )
+
 [node name="old_man_miniboss" type="KinematicBody2D" parent="."]
 position = Vector2( 826, 873 )
 script = ExtResource( 1 )
@@ -1282,6 +1300,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="old_man_miniboss"]
 position = Vector2( 0.5, -9.5 )
 shape = SubResource( 99 )
+disabled = true
 __meta__ = {
 "_edit_group_": true
 }
@@ -1303,20 +1322,51 @@ collision_mask = 8
 position = Vector2( 1, -8.5 )
 shape = SubResource( 114 )
 
+[node name="hitbox" type="Area2D" parent="old_man_miniboss"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="old_man_miniboss/hitbox"]
+position = Vector2( 2, -8.5 )
+shape = SubResource( 133 )
+
+[node name="Control" type="Control" parent="old_man_miniboss"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 11 )
+
+[node name="TextureProgress" type="TextureProgress" parent="old_man_miniboss/Control"]
+margin_left = -16.0
+margin_top = -56.0
+margin_right = 24.0
+margin_bottom = -16.0
+texture_under = ExtResource( 14 )
+texture_over = ExtResource( 12 )
+texture_progress = ExtResource( 13 )
+
 [connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="world/cabin/AnimatedSprite2" method="_on_Area2D_area_entered"]
-[connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_entered"]
 [connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_entered"]
+[connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="world/cabin/AnimatedSprite2" method="_on_Area2D_area_exited"]
-[connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_exited"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_exited"]
+[connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="world/cabin/door_enter" to="Player" method="_on_door_enter_area_entered"]
 [connection signal="area_exited" from="world/cabin/door_enter" to="Player" method="_on_door_enter_area_exited"]
 [connection signal="area_entered" from="world/cabin/Area2D" to="Player" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="world/cabin/Area2D" to="Player" method="_on_Area2D_area_exited"]
 [connection signal="area_entered" from="world/cabin/Area2D2" to="world/cabin" method="_on_Area2D2_area_entered"]
 [connection signal="axe_picked_up" from="Player" to="world/cabin" method="_on_Player_axe_picked_up"]
+[connection signal="damage1" from="Player" to="old_man_miniboss" method="_on_Player_damage1"]
+[connection signal="damage2" from="Player" to="." method="_on_Player_damage2"]
+[connection signal="damage2" from="Player" to="old_man_miniboss" method="_on_Player_damage2"]
 [connection signal="area_entered" from="Player/Activation_Area" to="Player" method="_on_Activation_Area_area_entered"]
 [connection signal="area_entered" from="Player/small_melee" to="Player" method="_on_small_melee_area_entered"]
 [connection signal="area_exited" from="Player/small_melee" to="Player" method="_on_small_melee_area_exited"]
+[connection signal="area_entered" from="Player/hitbox" to="Player" method="_on_hitbox_area_entered"]
+[connection signal="area_exited" from="Player/hitbox" to="Player" method="_on_hitbox_area_exited"]
 [connection signal="old_man_boss_start" from="old_man_miniboss" to="world/cabin" method="_on_old_man_miniboss_old_man_boss_start"]
+[connection signal="area_entered" from="old_man_miniboss/activation_area_old_man" to="." method="_on_activation_area_old_man_area_entered"]
 [connection signal="area_entered" from="old_man_miniboss/activation_area_old_man" to="old_man_miniboss" method="_on_activation_area_old_man_area_entered"]
+[connection signal="area_entered" from="old_man_miniboss/activation_area_old_man" to="old_man_miniboss/Control" method="_on_activation_area_old_man_area_entered"]
+[connection signal="area_entered" from="old_man_miniboss/hitbox" to="old_man_miniboss" method="_on_hitbox_area_entered"]
+[connection signal="area_exited" from="old_man_miniboss/hitbox" to="old_man_miniboss" method="_on_hitbox_area_exited"]

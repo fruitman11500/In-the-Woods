@@ -70,4 +70,7 @@ func _on_Area2D2_area_entered(area):
 	$KinematicBody2D/side_fence/AnimatedSprite5.animation = 'side_fence'
 	$KinematicBody2D/side_fence/AnimatedSprite6.animation = 'side_fence'
 	$KinematicBody2D/side_fence/AnimatedSprite7.animation = 'side_fence'
-	
+	$KinematicBody2D/CollisionShape2D.disabled = false
+	$KinematicBody2D/CollisionShape2D2.disabled = false
+	$KinematicBody2D/CollisionShape2D3.disabled = false
+	$KinematicBody2D/CollisionShape2D4.disabled = false

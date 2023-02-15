@@ -209,3 +209,11 @@ func _on_axe_stump_area_entered(area):
 
 func _on_axe_stump_area_exited(area):
 	axe_pickup = false
+
+
+func _on_hitbox_area_entered(area):
+	health -= 5
+
+
+func _on_hitbox_area_exited(area):
+	pass

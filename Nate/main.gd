@@ -11,8 +11,11 @@ func _ready():
 	add_child(bear)
 
 func _physics_process(delta):
-	var tree = t.instance()
-	if c <= 100:
-		add_child(tree)
-		
-		c += 1
+	pass
+
+
+
+
+
+func _on_Player_damage2():
+	pass # Replace with function body.
