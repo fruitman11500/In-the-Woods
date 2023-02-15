@@ -1,11 +1,18 @@
 var attack_time=Timer.new()
-func _ready():
-	attack_sequence()
+var attack=false
+func attack_sequence():
 	attack_time.wait_time=3
 	add_child(timer)
-	if velocity:
-		
 	timer.start()
+	velocity.x=25
+	velocity.y=25
 	yield(timer,'timeout')
-func attack_sequence():
-	 
+	add.child(timer)
+	timer.start()
+	velocity.x=25
+	velocity.y=25
+func _on_Attack_Area_area_entered(area):
+	attack = true
+	attack_sequence()
+	velocity.x=1
+	velocity.y=1
