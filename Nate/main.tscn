@@ -1309,7 +1309,6 @@ position = Vector2( 1.90735e-06, -10 )
 scale = Vector2( 1.28125, 1.10938 )
 frames = SubResource( 98 )
 animation = "walk_left"
-frame = 3
 playing = true
 __meta__ = {
 "_edit_group_": true
@@ -1346,8 +1345,8 @@ texture_over = ExtResource( 12 )
 texture_progress = ExtResource( 13 )
 
 [connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="world/cabin/AnimatedSprite2" method="_on_Area2D_area_entered"]
-[connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_entered"]
 [connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_entered"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="world/cabin/AnimatedSprite2" method="_on_Area2D_area_exited"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_axe_stump_area_exited"]
 [connection signal="area_exited" from="world/cabin/AnimatedSprite2/axe_stump" to="Player" method="_on_Area2D_area_exited"]
